@@ -13,10 +13,10 @@ def db_init():
     conn = sqlite3.connect('users.sqlite')
     c = conn.cursor()
     c.execute("DROP TABLE users")
-    c.execute("CREATE TABLE users (user text, password text, failures int)")
+    c.execute("CREATE TABLE users (user text, password text, successes int, failures int)")
 
     for u,p in users:
-        c.execute("INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')" %(u, p, 0))
+        c.execute("INSERT INTO users (user, password, successes, failures) VALUES ('%s', '%s', '%d', '%d')" %(u, p, 0, 1))
 
     conn.commit()
     conn.close()
