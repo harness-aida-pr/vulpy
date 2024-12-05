@@ -26,4 +26,6 @@ def do_home():
 def before_request():
     g.session = libsession.load(request)
 
-app.run(debug=True, host='127.0.1.1', ssl_context=('/tmp/acme.cert', '/tmp/acme.key'))
+```Auto Detect
+app.run(debug=True, host='127.0.1.1', ssl_context=ssl.create_default_context())
+```
